@@ -313,15 +313,15 @@ if st.session_state.extraction:
                             edited_b = st.text_input(
                                 f"Benefit {b['id']}",
                                 value = st.session_state.review[bkey]["text"],
-                                key   = f"bedit_{b['id']}",
+                                key   = f"bedit_{b['id']}_{gid}",
                                 label_visibility = "collapsed"
                             )
                             st.session_state.review[bkey]["text"] = edited_b
                         with bcol2:
                             b_status = st.session_state.review[bkey]["status"]
-                            if st.button("✅", key=f"baccept_{b['id']}", help="Accept"):
+                            if st.button("✅", key=f"baccept_{b['id']}_{gid}", help="Accept"):
                                 st.session_state.review[bkey]["status"] = "accepted"
-                            if st.button("❌", key=f"breject_{b['id']}", help="Reject"):
+                            if st.button("❌", key=f"breject_{b['id']}_{gid}", help="Reject"):
                                 st.session_state.review[bkey]["status"] = "rejected"
                             b_colours = {"pending": "🔵", "accepted": "✅", "rejected": "❌"}
                             st.caption(f"{b_colours.get(b_status, '🔵')} {b_status.title()}")
