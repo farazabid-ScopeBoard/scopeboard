@@ -15,10 +15,7 @@ Usage (imported):
 
 import json
 import os
-try:
-    from scripts.claude_chat import ask_claude  # when called from app.py
-except ImportError:
-    from claude_chat import ask_claude  # when run directly
+from scripts.claude_chat import ask_claude
 
 # ── Path to library ──────────────────────────────────────────────────
 LIBRARY_PATH = os.path.join(os.path.dirname(__file__), "benefits_library.json")
